@@ -5,4 +5,7 @@ public class A {
     public A(int a){
         System.out.println("222222");
     }
+
+    public void setId(int i) {
+    }
 }
