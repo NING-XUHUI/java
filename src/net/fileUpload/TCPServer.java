@@ -31,18 +31,15 @@ public class TCPServer {
         //1
         ServerSocket server = new ServerSocket(8888);
         //2
-
         /**
          * 让服务器一直处于accept方法（死循环）
          */
         while(true) {
             Socket socket = server.accept();
-
             /**
              * 使用多线程技术提高程序的效率
              * 有一个客户端上传文件，就开启一个线程完成文件上传
              */
-
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -54,10 +51,6 @@ public class TCPServer {
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        /**
-                         * 自定义文件命名规则
-                         * 规则：域名毫秒值随机数
-                         */
                         String filename = "itcast" + System.currentTimeMillis() + new Random().nextInt(999999) + ".jpg";
                         // 5
                         FileOutputStream fos = new FileOutputStream(file + "/" + filename);
@@ -68,7 +61,6 @@ public class TCPServer {
                             // 7
                             fos.write(bytes, 0, len);
                         }
-
                         // 8 9
                         socket.getOutputStream().write("上传成功".getBytes());
                         fos.close();
@@ -78,9 +70,6 @@ public class TCPServer {
                     }
                 }
             }).start();
-
         }
-        //服务器不需要关闭
-        //server.close();
     }
 }
