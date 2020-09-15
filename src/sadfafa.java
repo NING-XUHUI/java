@@ -3,6 +3,7 @@ public class sadfafa {
         int a = 1;
         if(){
             System.out.println("adsadas");
+            
         }
     }
 }
