@@ -18,6 +18,10 @@ class MyPairNumber {
         m = a;
         n = b;
     }
+
+    public int sum() {
+        return this.m + this.n;
+    }
 }
 
 
